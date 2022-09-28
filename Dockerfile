@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM nginx:1.22 as test
+FROM nginx:1.22 as test1
 
 FROM golang:1.19-alpine as build
 
