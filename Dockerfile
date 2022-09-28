@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM golang:1.17-alpine as build
+FROM golang:1.17-alpine as builder
 
 WORKDIR /work
 
@@ -19,8 +19,5 @@ RUN go build -o hello .
 
 FROM alpine:3.98
 
-COPY --from=build /work/hello /hello
+COPY --from=builder /work/hello /hello
 CMD ["/hello"]
-
-FROM nginx:1.22
-RUN ls -lah
