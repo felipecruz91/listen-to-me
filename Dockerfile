@@ -1,7 +1,4 @@
 # syntax=docker/dockerfile:1.4
-FROM nginx:1.22
-RUN echo "hi there 1234"
-
 FROM golang:1.17-alpine as build
 
 WORKDIR /work
@@ -24,3 +21,6 @@ FROM alpine:3.98
 
 COPY --from=build /work/hello /hello
 CMD ["/hello"]
+
+FROM nginx:1.22
+RUN ls
