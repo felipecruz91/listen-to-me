@@ -3,7 +3,7 @@ FROM php:7.4.30-apache-buster
 
 COPY <<EOF /var/www/html/index.php
 <?php
-echo "Hello World from Docker!";
+echo "Hello World from Docker";
 ?>
 EOF
 
