@@ -1,6 +1,4 @@
 # syntax=docker/dockerfile:1.4
-FROM nginx:1.22 as test1
-
 FROM golang:1.19-alpine as build
 
 WORKDIR /work
@@ -19,7 +17,7 @@ func main() {
 EOF
 RUN go build -o hello .
 
-FROM alpine:3.15
+FROM alpine:3.27
 
 COPY --from=build /work/hello /hello
 CMD ["/hello"]
