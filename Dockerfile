@@ -22,7 +22,7 @@ FROM alpine:3.98
 COPY --from=builder /work/hello /hello
 CMD ["/hello"]
 
-FROM alpine:3.97
+FROM alpine:3.96
 
 COPY --from=builder /work/hello /hello
 CMD ["/hello"]
