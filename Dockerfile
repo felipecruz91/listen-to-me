@@ -1,23 +1,11 @@
 # syntax=docker/dockerfile:1.4
-FROM golang:1.17-alpine as builder
+FROM php:7.0-apache
 
-WORKDIR /work
-
-COPY <<EOF go.mod
-module hello
-go 1.19
+COPY <<EOF /var/www/html/index.php
+<?php
+echo "Hello, World from Docker!";
+?>
 EOF
 
-COPY <<EOF main.go
-package main
-import "fmt"
-func main() {
-    fmt.Println("Hello World 123!")
-}
-EOF
-RUN go build -o hello .
-
-FROM alpine:3.11
-
-COPY --from=builder /work/hello /hello
-CMD ["/hello"]
+EXPOSE 80
+ENTRYPOINT ["php", "-S", "0.0.0.0:80", "-t", "/var/www/html"]
