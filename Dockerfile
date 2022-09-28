@@ -1,28 +1,6 @@
 # syntax=docker/dockerfile:1.4
-FROM golang:1.17-alpine as builder
+FROM nginx:1.22
 
-WORKDIR /work
-
-COPY <<EOF go.mod
-module hello
-go 1.19
+COPY <<EOF /usr/share/nginx/html/index.html
+<h1>Hello!</h1>
 EOF
-
-COPY <<EOF main.go
-package main
-import "fmt"
-func main() {
-    fmt.Println("Hello World!")
-}
-EOF
-RUN go build -o hello .
-
-FROM alpine:3.98
-
-COPY --from=builder /work/hello /hello
-CMD ["/hello"]
-
-FROM alpine:3.96
-
-COPY --from=builder /work/hello /hello
-CMD ["/hello"]
