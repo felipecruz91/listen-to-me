@@ -1,9 +1,4 @@
 # syntax=docker/dockerfile:1.4
-FROM nginx
-COPY <<EOF hi.txt
-hi
-EOF
-
 FROM golang:1.17-alpine as build
 
 WORKDIR /work
