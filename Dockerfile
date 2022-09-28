@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM php:7.0-apache
+FROM php:7.4.30-apache-buster
 
 COPY <<EOF /var/www/html/index.php
 <?php
