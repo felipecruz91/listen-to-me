@@ -1,7 +1,23 @@
-FROM python
-WORKDIR /src
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . ./
-EXPOSE 8080
-ENTRYPOINT ["python3", "app.py"]
+# syntax=docker/dockerfile:1.4
+FROM golang:1.17-alpine as builder
+
+WORKDIR /work
+
+COPY <<EOF go.mod
+module hello
+go 1.19
+EOF
+
+COPY <<EOF main.go
+package main
+import "fmt"
+func main() {
+    fmt.Println("Hello World!")
+}
+EOF
+RUN go build -o hello .
+
+FROM alpine:3.11
+
+COPY --from=builder /work/hello /hello
+CMD ["/hello"]
