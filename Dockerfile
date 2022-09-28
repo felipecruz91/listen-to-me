@@ -1,1 +1,1 @@
-FROM nginx:1.22
+FROM cgr.dev/chainguard/nginx
