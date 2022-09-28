@@ -17,7 +17,7 @@ func main() {
 EOF
 RUN go build -o hello .
 
-FROM alpine:3.15
+FROM cgr.dev/chainguard/alpine-base
 
 COPY --from=build /work/hello /hello
 CMD ["/hello"]
