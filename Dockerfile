@@ -1,1 +1,3 @@
-FROM nginx:1.20
+FROM nginx:1.17
+
+RUN echo "test1"
