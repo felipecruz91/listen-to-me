@@ -23,4 +23,4 @@ COPY --from=build /work/hello /hello
 CMD ["/hello"]
 
 FROM nginx:1.22
-RUN ls
+RUN ls -lah
