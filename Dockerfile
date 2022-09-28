@@ -1,11 +1,7 @@
 # syntax=docker/dockerfile:1.4
-FROM nginx:1.22
+FROM nginx:1.22 as test
 
-COPY <<EOF /usr/share/nginx/html/index.html
-<h1>Hello there!</h1>
-EOF
-
-FROM golang:1.17-alpine as build
+FROM golang:1.19-alpine as build
 
 WORKDIR /work
 
