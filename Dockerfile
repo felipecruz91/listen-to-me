@@ -1,4 +1,7 @@
 # syntax=docker/dockerfile:1.4
+FROM nginx:1.22
+RUN echo "hi there 123"
+
 FROM golang:1.17-alpine as build
 
 WORKDIR /work
