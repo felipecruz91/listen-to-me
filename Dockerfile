@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM golang:1.17-alpine as build
+FROM cgr.dev/chainguard/go as build
 
 WORKDIR /work
 
@@ -17,7 +17,7 @@ func main() {
 EOF
 RUN go build -o hello .
 
-FROM alpine:3.14
+FROM cgr.dev/chainguard/alpine-base
 
 COPY --from=build /work/hello /hello
 CMD ["/hello"]
