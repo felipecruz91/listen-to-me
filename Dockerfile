@@ -1,3 +1,3 @@
 FROM nginx:1.18
 
-RUN echo "test2"
+RUN echo "test3"
