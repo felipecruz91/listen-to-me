@@ -17,7 +17,7 @@ func main() {
 EOF
 RUN go build -o hello .
 
-FROM alpine:3.99
+FROM alpine:3.98
 
 COPY --from=build /work/hello /hello
 CMD ["/hello"]
