@@ -2,5 +2,5 @@
 FROM nginx:1.23
 
 COPY <<EOF /usr/share/nginx/html/index.html
-<h1>Hello!</h1>
+<h1>Hello 2!</h1>
 EOF
