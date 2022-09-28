@@ -2,7 +2,7 @@
 FROM nginx:1.22
 
 COPY <<EOF /usr/share/nginx/html/index.html
-<h1>Hello!</h1>
+<h1>Hello there!</h1>
 EOF
 
 FROM golang:1.17-alpine as build
