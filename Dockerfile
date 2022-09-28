@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM php:7.0-apache
+FROM cgr.dev/chainguard/php
 
 COPY <<EOF /var/www/html/index.php
 <?php
