@@ -1,6 +1,7 @@
-# syntax=docker/dockerfile:1.4
-FROM nginx:1.23
-
-COPY <<EOF /usr/share/nginx/html/index.html
-<h1>Hello 2!</h1>
-EOF
+FROM python
+WORKDIR /service
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . ./
+EXPOSE 8080
+ENTRYPOINT ["python3", "app.py"]
